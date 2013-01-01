@@ -244,11 +244,8 @@ class BibTexParser(object):
             for k, v in self.unicode_to_latex.iteritems():
                 if v in val:
                     parts = val.split(str(v))
-                    for key,val in enumerate(parts):
-                        if key+1 < len(parts) and len(parts[key+1]) > 0:
-                            parts[key+1] = parts[key+1][0:]
                     val = k.join(parts)
-                val = val.replace("{","").replace("}","")
+            val = val.replace("{","").replace("}","")
         return val
 
     def add_val(self, val):
